@@ -36,8 +36,8 @@ class HeadControllerTest {
 
     @BeforeEach
     void setUp() {
-        headCreateDTO = new HeadCreateDTO("Имейнов Именя Имнеевич");
-        headGetDTO = new HeadGetDTO("test-uuid", "Имейнов Именя Имнеевич");
+        headCreateDTO = new HeadCreateDTO("fullname");
+        headGetDTO = new HeadGetDTO("test-uuid", "fullname");
     }
 
     @Test

@@ -114,7 +114,7 @@ class EducProgControllerTest {
 
         ResponseEntity<List<EducProgGetDTO>> response = controller.getAll(sortedType);
 
-        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(dtos, response.getBody());
     }
 

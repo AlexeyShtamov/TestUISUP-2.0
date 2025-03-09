@@ -15,6 +15,8 @@ import ru.shtamov.uisupTest.extern.controllers.ModuleController;
 import ru.shtamov.uisupTest.extern.exceptions.IsAlreadyExistException;
 import ru.shtamov.uisupTest.service.ModuleService;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -37,7 +39,7 @@ class ModuleControllerTest {
     @BeforeEach
     void setUp() {
         moduleCreateDTO = new ModuleCreateDTO("title", "moduleType");
-        moduleGetDTO = new ModuleGetDTO("test-uuid", "title", "moduleType");
+        moduleGetDTO = new ModuleGetDTO("test-uuid", "title", "moduleType", List.of());
     }
 
     @Test
