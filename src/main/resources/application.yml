@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: uisupTest
+  datasource:
+    url: jdbc:postgresql://localhost:5433/educ_prog_db
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
+
+
+server:
+  port: 8085
+
+admin:
+  username: main_admin
+  password: admin312!
