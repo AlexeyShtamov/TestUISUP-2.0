@@ -2,8 +2,11 @@ package ru.shtamov.uisupTest.service.impls;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.shtamov.uisupTest.domain.EducationProgram;
+import ru.shtamov.uisupTest.domain.Head;
 import ru.shtamov.uisupTest.domain.Institute;
 import ru.shtamov.uisupTest.extern.exceptions.IsAlreadyExistException;
 import ru.shtamov.uisupTest.extern.repositories.InstituteRepository;
@@ -34,6 +37,13 @@ public class InstituteServiceImpl implements InstituteService {
 
         log.info("Institute with id {} is founded", uuid);
         return foundedInstitute;
+    }
+
+    @Override
+    public Page<Institute> getAllInstitutes(Integer offset, Integer limit) {
+        Page<Institute> institutes = instituteRepository.findAll(PageRequest.of(offset, limit));
+        log.info("Institute page offset: {}, limit: {} is gotten", offset, limit);
+        return institutes;
     }
 
     @Override

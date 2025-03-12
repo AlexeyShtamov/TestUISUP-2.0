@@ -1,5 +1,6 @@
 package ru.shtamov.uisupTest.service;
 
+import org.springframework.data.domain.Page;
 import ru.shtamov.uisupTest.domain.EducationProgram;
 import ru.shtamov.uisupTest.domain.Institute;
 import ru.shtamov.uisupTest.domain.Module;
@@ -21,6 +22,14 @@ public interface InstituteService {
      * @return найденный институт
      */
     Institute getInstitute(String uuid);
+
+    /**
+     * Метод для получения всех иститутов
+     * @param offset станица (счет начинается с 0)
+     * @param limit количество на странице
+     * @return Страницу институтов
+     */
+    Page<Institute> getAllInstitutes(Integer offset, Integer limit);
 
     /**
      * Метод для обновленния данных института

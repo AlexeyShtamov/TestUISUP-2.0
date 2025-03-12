@@ -2,7 +2,10 @@ package ru.shtamov.uisupTest.service.impls;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import ru.shtamov.uisupTest.domain.Institute;
 import ru.shtamov.uisupTest.domain.Module;
 import ru.shtamov.uisupTest.extern.exceptions.IsAlreadyExistException;
 import ru.shtamov.uisupTest.extern.repositories.ModuleRepository;
@@ -33,6 +36,13 @@ public class ModuleServiceImpl implements ModuleService {
 
         log.info("Module with id {} is founded", uuid);
         return foundedModule;
+    }
+
+    @Override
+    public Page<Module> getAllModules(Integer offset, Integer limit) {
+        Page<Module> modules = moduleRepository.findAll(PageRequest.of(offset, limit));
+        log.info("Module page offset: {}, limit: {} is gotten", offset, limit);
+        return modules;
     }
 
     @Override

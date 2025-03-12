@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,16 @@ public class InstituteController {
     @GetMapping("/{uuid}")
     public ResponseEntity<InstituteGetDTO> get(@PathVariable String uuid){
         return new ResponseEntity<>(instituteAssembler.fromInstituteToDTO(instituteService.getInstitute(uuid)), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<InstituteGetDTO>> getAll(@RequestParam("offset")  Integer offset,
+                                                     @RequestParam("limit") Integer limit) {
+
+        Page<Institute> institutePage = instituteService.getAllInstitutes(offset, limit);
+        Page<InstituteGetDTO> dtoPage = institutePage.map(instituteAssembler::fromInstituteToDTO);
+
+        return new ResponseEntity<>(dtoPage, HttpStatus.OK);
     }
 
     @PutMapping("/{uuid}")

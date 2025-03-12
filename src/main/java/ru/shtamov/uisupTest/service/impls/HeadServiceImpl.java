@@ -2,8 +2,11 @@ package ru.shtamov.uisupTest.service.impls;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.shtamov.uisupTest.domain.Head;
+import ru.shtamov.uisupTest.domain.Module;
 import ru.shtamov.uisupTest.extern.exceptions.IsAlreadyExistException;
 import ru.shtamov.uisupTest.extern.repositories.HeadRepository;
 import ru.shtamov.uisupTest.service.HeadService;
@@ -33,6 +36,13 @@ public class HeadServiceImpl implements HeadService {
 
         log.info("Head with id {} is founded", uuid);
         return foundedHead;
+    }
+
+    @Override
+    public Page<Head> getAllHeads(Integer offset, Integer limit) {
+        Page<Head> modules = headRepository.findAll(PageRequest.of(offset, limit));
+        log.info("Module page offset: {}, limit: {} is gotten", offset, limit);
+        return modules;
     }
 
     @Override

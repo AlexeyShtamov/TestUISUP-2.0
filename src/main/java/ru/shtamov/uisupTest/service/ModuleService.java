@@ -1,5 +1,6 @@
 package ru.shtamov.uisupTest.service;
 
+import org.springframework.data.domain.Page;
 import ru.shtamov.uisupTest.domain.Module;
 import ru.shtamov.uisupTest.extern.exceptions.IsAlreadyExistException;
 
@@ -19,6 +20,14 @@ public interface ModuleService {
      * @return найденный модуль
      */
     Module getModule(String uuid);
+
+    /**
+     * Метод для получения всех модулей
+     * @param offset станица (счет начинается с 0)
+     * @param limit количество на странице
+     * @return Страницу модулей
+     */
+    Page<Module> getAllModules(Integer offset, Integer limit);
 
     /**
      * Метод для обновленния данных модуля

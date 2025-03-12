@@ -2,9 +2,11 @@ package ru.shtamov.uisupTest.extern.controllers;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.shtamov.uisupTest.domain.Module;
 import ru.shtamov.uisupTest.extern.DTOs.module.ModuleCreateDTO;
 import ru.shtamov.uisupTest.extern.DTOs.module.ModuleGetDTO;
 import ru.shtamov.uisupTest.extern.assemblers.ModuleAssembler;
@@ -29,6 +31,15 @@ public class ModuleController {
     @GetMapping("/{uuid}")
     public ResponseEntity<ModuleGetDTO> get(@PathVariable String uuid){
         return new ResponseEntity<>(moduleAssembler.fromModuleToDTO(moduleService.getModule(uuid)), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<ModuleGetDTO>> getAll(@RequestParam("offset")  Integer offset,
+                                                     @RequestParam("limit") Integer limit) {
+        Page<Module> modulePage = moduleService.getAllModules(offset, limit);
+        Page<ModuleGetDTO> dtoPage = modulePage.map(moduleAssembler::fromModuleToDTO);
+
+        return new ResponseEntity<>(dtoPage, HttpStatus.OK);
     }
 
     @PutMapping("/{uuid}")
