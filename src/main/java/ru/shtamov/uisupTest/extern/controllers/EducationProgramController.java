@@ -19,12 +19,11 @@ import ru.shtamov.uisupTest.service.EducationProgramService;
 import ru.shtamov.uisupTest.service.ModuleService;
 
 import java.util.List;
-import java.util.UUID;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/educ_prog")
-public class EducationProgramController {
+public class    EducationProgramController {
 
     private final EducationProgramService educProgService;
     private final EducationProgramAssembler educProgAssembler;

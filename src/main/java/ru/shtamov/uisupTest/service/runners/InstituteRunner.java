@@ -4,10 +4,8 @@ import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import ru.shtamov.uisupTest.domain.Head;
 import ru.shtamov.uisupTest.domain.Institute;
 import ru.shtamov.uisupTest.extern.repositories.InstituteRepository;
-import ru.shtamov.uisupTest.service.InstituteService;
 
 @AllArgsConstructor
 @Component
