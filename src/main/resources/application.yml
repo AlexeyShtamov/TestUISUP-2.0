@@ -2,16 +2,13 @@ spring:
   application:
     name: uisupTest
   datasource:
-    url: jdbc:postgresql://@dpg-cvt7bere5dus73a38vl0-a:5432/uisupdb?user=uisupuser&password=dJ3TX54EOY6Um4cTV0OdkiTUZyOa1nqA
+    url: jdbc:postgresql://dpg-cvt7bere5dus73a38vl0-a.frankfurt-postgres.render.com/uisupdb?sslmode=require
     username: uisupuser
     password: dJ3TX54EOY6Um4cTV0OdkiTUZyOa1nqA
     driver-class-name: org.postgresql.Driver
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: create-drop
-    open-in-view: true
-
+      ddl-auto: update
 
 server:
   port: 8085
