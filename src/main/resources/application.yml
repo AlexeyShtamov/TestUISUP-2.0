@@ -2,9 +2,9 @@ spring:
   application:
     name: uisupTest
   datasource:
-    url: jdbc:postgresql://localhost:5433/educ_prog_db
-    username: postgres
-    password: password
+    url: postgresql://uisupuser:dJ3TX54EOY6Um4cTV0OdkiTUZyOa1nqA@dpg-cvt7bere5dus73a38vl0-a.frankfurt-postgres.render.com/uisupdb
+    username: uisupuser
+    password: dJ3TX54EOY6Um4cTV0OdkiTUZyOa1nqA
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
