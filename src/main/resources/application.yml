@@ -2,7 +2,7 @@ spring:
   application:
     name: uisupTest
   datasource:
-    url: jdbc:postgresql://uisupuser:dJ3TX54EOY6Um4cTV0OdkiTUZyOa1nqA@dpg-cvt7bere5dus73a38vl0-a/uisupdb
+    url: jdbc:postgresql://@dpg-cvt7bere5dus73a38vl0-a:5432/uisupdb?user=uisupuser&password=dJ3TX54EOY6Um4cTV0OdkiTUZyOa1nqA
     username: uisupuser
     password: dJ3TX54EOY6Um4cTV0OdkiTUZyOa1nqA
     driver-class-name: org.postgresql.Driver
